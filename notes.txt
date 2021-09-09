@@ -1,0 +1,80 @@
+
+
+-------------------------------------------------
+This can be the homework "from last time". I can use items (here) or users (from Tuesday 8/31)
+an online todo list
+    add stuff
+    cross it off
+    erase it
+    edit (e.g., fix a spelling mistake)
+    ask for/ access the updated list
+CRUD
+    create, read, update, delete
+
+//return just the bare0bones of all the items
+GET /items
+
+//return the details of a particular items
+GET/ items/ id
+
+//add a new item to the list//privde information abou the item that you want to add
+POST /items
+    (posts have bodies)
+
+//update the item with new information
+//id in the path, is the id of item you want to update
+// body is the information you want to update it with 
+PUT /items/:id
+
+//make sure the id and the information you want to update the item with are both in the body
+PUT /items
+
+//delete the item
+//make sure to include the id in the path
+DELETE /items/:id
+
+
+//what do we want to track about our todo items?
+    //summary:
+        //id - number, every item should have an id
+        //label - string, the label of the item/ the task
+        //done - boolean, default is false; if true it's done
+
+    //the details:
+        //priority - string, high, med, low
+        //due date - date
+
+
+---------------------------------------------------------
+how can the client send information along with the request
+1.path parameters
+2.query parameters
+3.body (POST and PUT)
+
+I want to manage the users with my API
+
+return the names and ids of all the users
+GET /users
+app.get("/users", function(req, res) {
+    //code to return all the users
+})
+
+return the details of a single user
+ GET /user
+//path parameter - server side
+app.get("/user/:id", function() {
+    //some code
+}
+
+PUT /user
+
+
+POST /user
+
+DELETE /user
+
+-----------------------------------------------------
+ERRORS
+300's we moved, go somewhere else
+404/ 400's errors user errors
+500's our faults; we effed up
