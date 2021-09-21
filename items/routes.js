@@ -2,38 +2,24 @@ const express = require('express')
 
 const router = express.Router()
 
-let nextID = 3;
+//I think I need to access the controller.js file here
+const controller = require("./controller")
+// app.use(items)
 
-let db = [{
-    "id": 1, 
-    "label": "Reading for class 3",
-    "done": false,
-    "priority": "High",
-    "dueDate": "8/31/21" 
 
-},{
-    "id": 2, 
-    "label": "Homework for class 3",
-    "done": false,
-    "priority": "High",
-    "dueDate": "9/7/21" 
-}
-]
 
 //DEFINE ALL THE ROUTES:
 
-router.get('/', function(req, res){
-    res.json("Best Todo List App EVER")
-})
+router.get('/', controller.getAllItems)
 
-// router.get('/items', getItemSummaries)
+router.get('/items', controller.getItemSummaries)
 
-// router.get('/item/:id', getItemById)
+router.get('/items/:id', controller.getItemById)
 
-// router.post('/items', updateItemsById)
+router.post('/items', controller.createAnItem)
 
-// router.put('/items/:id', VARIABLE HERE)
+router.put('/items/:id', controller.updateItemsById)
 
-// router.delete('/items/:id', deleteItemsById)
+router.delete('/items/:id', controller.deleteItemsById)
 
-module.exports
+module.exports = router
